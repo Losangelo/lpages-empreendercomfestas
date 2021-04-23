@@ -1,0 +1,47 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:prettier/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "import/parsers": {"@typescript-eslint/parser": [".ts", ".tsx"]},
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "paths": "./tsconfig.json"
+            }
+        }
+    },
+    "rules": {
+        // Disable prop-types as we use TypeScript for type checking
+        "prettier/prettier": "error",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
+        // needed for NextJs jsx without react import
+        "space-before-function-paren":"off"
+    }
+}
