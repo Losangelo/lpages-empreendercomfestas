@@ -1,0 +1,9 @@
+{
+  "posts": [
+    { "id": 1, "img": "/modelo1.jpg", "title": "Zildete", "subtitle": "Dourado Brilhante", "description": "Lembrança Caixa Dourada Cintilante" },
+    { "id": 2, "img": "/modelo2.jpg", "title": "Uso de Números", "subtitle": "Numérico", "description": "Lembrança Caixa Dourada Cintilante" },
+    { "id": 3, "img": "/modelo3.jpg", "title": "Boneco", "subtitle": "Uso de Bisques", "description": "Lembrança Caixa Dourada Cintilante" },
+    { "id": 4, "img": "/modelo4.jpg", "title": "1º Imersão Personalizado de Luxo THE", "subtitle": "Projeto de nossas Alunas", "description": "Lembrança Caixa Dourada Cintilante" }
+  ]
+}
+            

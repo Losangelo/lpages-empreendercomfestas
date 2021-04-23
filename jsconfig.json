@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"baseUrl": "src",
+		"paths": {
+			"@/*": ["*"]
+		}
+	},
+	"include":["scr"],
+	"exclude": [".next", "node_modules"]
+}

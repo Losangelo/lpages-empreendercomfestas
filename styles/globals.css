@@ -1,16 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply h-screen bg-red-50 font-sans; 
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#bgLu {
+  @apply bg-fixed bg-right-top bg-opacity-75;
 }
 
-* {
-  box-sizing: border-box;
+__next {
+  @apply h-screen flex flex-col
+}
+
+a, a:visited {
+  @apply p-3 inline-block text-center align-middle uppercase;
+}
+
+article {
+  @apply p-12
+}
+
+input {
+  @apply h-12 p-8 shadow-sm mt-1 block w-full sm:text-lg border-gray-300 rounded-xl;
 }
