@@ -1,15 +1,18 @@
-import { NextPage } from 'next'
 import React, { useState } from 'react'
+import { NextPage} from 'next'
+import { useRouter } from 'next/router'
+
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { CheckSVG } from '../../icons'
-import lead from '../../pages/api/lead'
 
 const Leads: NextPage = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
 
-  function handlerRegister(e) {
+  const router = useRouter()
+
+  async function handlerRegister(e) {
     e.preventDefault()
 
     if (!name) {
@@ -27,7 +30,20 @@ const Leads: NextPage = () => {
       )
     }
 
-    return lead()
+    const res = await fetch(
+      '/api/lead',
+      {
+        body: JSON.stringify({
+          name: e.target.name.value,
+          email: e.target.email.value
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      }
+    )
+    const result = await res.json()
   }
 
   return (

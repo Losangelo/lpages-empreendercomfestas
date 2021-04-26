@@ -26,6 +26,7 @@ const Home: NextPage = () => (
       <Leads />
       <Cursos />
       <Footer />
+
     </div>
   </>
 )

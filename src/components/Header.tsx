@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+
 import Logo from './Logo'
 import Menu from './Menu'
 
