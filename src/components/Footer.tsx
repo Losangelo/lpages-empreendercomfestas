@@ -24,7 +24,7 @@ const Footer: NextPage = () => (
 
     <a
       href="https://wa.me/5586981794415?text=Adorei%20seu%20trabalho,%20desejo%20saber%20mais!"
-      className="fixed z-auto bottom-10 right-6"
+    className="fixed z-auto bottom-5 right-4"
       target="_blank"
       rel="noreferrer"
     >

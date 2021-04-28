@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { CheckSVG } from '../../icons'
+import { FaCheck } from 'react-icons/fa'
+import Button from '@material-ui/core/Button';
 
 const Leads: NextPage = () => {
   const [name, setName] = useState('')
@@ -60,7 +61,7 @@ const Leads: NextPage = () => {
             Saia do stress, relaxe, ocupe-se com algo que lhe trará prazer, mais
             concentração, uma nova habilidade manual, onde, poderá até, usá-la
             como uma
-            <span className="font-bold">nova fonte de renda!</span>
+            <span className="font-bold"> nova fonte de renda!</span>
           </p>
           <p className="py-8 font-sans font-medium">
             Chegou a grande oportunidade que você esperava! Se você desejar
@@ -92,22 +93,15 @@ const Leads: NextPage = () => {
                 className="border border-transparent focus:outline-none focus:ring-2"
               />
 
-              <button
+              <Button
                 type="submit"
-                className="px-4 py-2
-                      text-sm
-                      text-red-400
-                      rounded-full
-                      border
-                      hover:border-red-600
-                      focus:outline-none
-                      focus:ring-1
-                      focus:ring-offset-1
-                      focus:ring-offset-red-600"
-              >
-                <CheckSVG />
+                variant="contained"
+                color="secondary"
+                className="m-2"
+                startIcon={<FaCheck />}
+                >
                 Cadastrar
-              </button>
+              </Button>
             </div>
           </form>
         </div>
@@ -117,12 +111,12 @@ const Leads: NextPage = () => {
             src="/assets/LucianaMFer2.png"
             alt="Luciana Ferreira Personalizados de Luxo"
           />
-          <img
+          {/* <img
             src="/assets/LucianaMFer2.png"
             width={75}
             className="p-2 md:hidden"
             alt="Luciana Ferreira"
-          />
+          /> */}
         </div>
       </article>
     </>

@@ -4,11 +4,12 @@ import {
   FaInstagramSquare,
   FaYoutubeSquare,
   FaFacebookSquare,
-  FaAngellist,
-  FaSign,
-  FaSignOutAlt,
-  FaSignLanguage,
-} from 'react-icons/fa'
+  FaAngellist
+} from 'react-icons/fa';
+
+import { MdAccountCircle} from 'react-icons/md';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 // const Menu: NextPage = () => (
 
@@ -16,7 +17,7 @@ export default function Menu() {
   const [ session, loading ] = useSession();
 
   return <>
-    <div className="sm:text-red-500 font-light font-sans text-center justify-between flex flex-row-1">
+    <div className="text-red-500 font-light font-sans text-center justify-between flex flex-row-1 sm:text-center">
       <a
         href="https://www.instagram.com/festasdaludecoracao/"
         target="_blank"
@@ -31,7 +32,7 @@ export default function Menu() {
           />
           instagram
         </div>
-        <FaInstagramSquare size={40} color="#b48484" className="p-1 sm:hidden" />
+        <FaInstagramSquare size={35} color="#b48484" className="sm:hidden text-center sm:text-left" />
       </a>
 
       <a
@@ -48,7 +49,7 @@ export default function Menu() {
           />
           facebook
         </div>
-        <FaFacebookSquare size={40} color="#b48484" className="p-1 sm:hidden" />
+        <FaFacebookSquare size={35} color="#b48484" className="sm:hidden text-center sm:text-left" />
       </a>
 
       <a
@@ -65,7 +66,7 @@ export default function Menu() {
           />
           youtube
         </div>
-        <FaYoutubeSquare size={40} color="#b48484" className="p-1 sm:hidden" />
+        <FaYoutubeSquare size={35} color="#b48484" className="sm:hidden text-center sm:text-left" />
       </a>
 
       <a
@@ -82,28 +83,33 @@ export default function Menu() {
           />
           Orçamento
         </div>
-        <FaAngellist size={40} color="#b48484" className="p-1 sm:hidden" />
+        <FaAngellist size={35} color="#b48484" className="sm:hidden text-center sm:text-left" />
       </a>
     </div>
 
-    {!session && <>
-      <FaSignOutAlt
-        size={45}
-        color="#b48484"
-        className="p-1 hidden md:inline-block"
-      />
-      Not signed in <br/>
-      <button onClick={() => signIn()}>Sign in</button>
-    </>}
-    {session && <>
-      <FaSign
-        size={45}
-        color="#b48484"
-        className="p-1 hidden md:inline-block"
-      />
-      Signed in as {session.user.email} <br/>
-      <button onClick={() => signOut()}>Sign out</button>
-    </>}
-  </>
-}
+    {!session ? (
+      <>
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          className="p-1 hidden md:inline-block right-1"
+          startIcon={<MdAccountCircle />}
+          onClick={ () => signIn('google') }>
+          Login Cursos
+        </Button>
+      </>
+      ) : (
+        <>
+          <Avatar
+            onClick={() => signOut()}
+            alt="User"
+            className="cursor-pointer h-72 m-2"
+            src={session?.user?.image}
+          />
+        </>
+      )
+    }
+</>
 
+}

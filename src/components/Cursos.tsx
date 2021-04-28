@@ -26,7 +26,7 @@ const dbCursos = [
       'Saiba como cobrar por suas festas e tenha lucros reais! Saber precificar é um dos grandes problemas enfrentados por muitas decoradoras de festas, principalmente as que estão começando agora no mercado. Descubra como precificar um orçamento e nunca mais perca dinheiro por não saber cobrar. Precificar nunca mais será um bicho papão. Com esse manual, você saberá o que precisa fazer na hora de precificar uma proposta de orçamento de forma simples e descomplicado.',
   },
   {
-    Id: 3,
+    Id: 4,
     Title: ' Viver de Festas',
     urlImage: '/assets/logo.png',
     price: 'Produto Digital R$497,00',

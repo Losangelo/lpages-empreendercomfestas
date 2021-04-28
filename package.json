@@ -9,6 +9,7 @@
     "db": "yarn json-server --watch db.json"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@tailwindcss/forms": "^0.3.2",
     "axios": "^0.21.1",
     "eslint-config-recommended": "^4.1.0",

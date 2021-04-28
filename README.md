@@ -1,3 +1,13 @@
+Olá, ainda não preparei meu Readme.md da forma como deve ser, mas vou te dar uma breve explicação do que śerá esse projeto.
+
+
+Estou desenvolvendo uma plataforma EAD (bem simples, para praticar meus conhecimentos) para minha esposa, ela tem alguns cursos digitais para PERSONALIZADOS DE LUXO, PAPELARIA DE LUXO, dentre outas coisa na área de decoração, vendo a necessidade de usar várias plataformas para manter seu negócio funcionando e todas de valor relativamente alto, resolvi desenvolver algo que possa suprir as necessidade mais básicas e ir evoluindo, já que nem tudo que as pagas oferecem são necessárias para o negócio em questão.
+
+
+O projeto é desenvolvido com Nextjs, Mongodb e ecosistema javascript.
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
