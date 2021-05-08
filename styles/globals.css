@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply h-screen bg-red-50 font-sans; 
+  @apply h-screen bg-red-50 font-sans;
 }
 
 #bgLu {
@@ -12,15 +12,16 @@ body {
 }
 
 __next {
-  @apply h-screen flex flex-col
+  @apply h-screen flex flex-col;
 }
 
-a, a:visited {
+a,
+a:visited {
   @apply p-3 inline-block text-center align-middle uppercase;
 }
 
 article {
-  @apply p-12
+  @apply p-12;
 }
 
 input {

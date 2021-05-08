@@ -8,12 +8,7 @@ const Logo: NextPage = () => (
       className="p-2 hidden sm:inline-block"
       alt="Luciana Ferreira"
     />
-    <img
-      src="/assets/logo.png"
-      width={85}
-      className="p-2 sm:hidden"
-      alt="Luciana Ferreira"
-    />
+    <img src="/assets/logo.png" width={85} className="p-2 sm:hidden" alt="Luciana Ferreira" />
   </>
 )
 

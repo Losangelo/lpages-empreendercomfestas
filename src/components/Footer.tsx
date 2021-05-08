@@ -1,34 +1,33 @@
 import { NextPage } from 'next'
 import { FaWhatsapp } from 'react-icons/fa'
+// import { Button } from '@material-ui/core'
+import { Button } from "@chakra-ui/react"
+
+import WbotStart from '../whatsapp'
 
 const Footer: NextPage = () => (
   <>
     <hr />
-
     <div className="text-center bg-red-900 ">
       <a
         href="https://about.me/losangelo"
         target="_blank"
         rel="noopener noreferrer"
-        className="py-3 text-gray-50 font-extrabold justify-center flex flex-row"
-      >
+        className="py-3 text-gray-50 font-extrabold justify-center flex flex-row">
         Desenvolvido por Losangelo Pacífico Tudo pela mulher
-        <img
-          src="/assets/LucianaMFer2.svg"
-          alt="LosangeloPacifio"
-          className="w-150"
-          width={150}
-        />
+        <img src="/assets/LucianaMFer2.svg" alt="LosangeloPacifio" className="w-150" width={150} />
       </a>
     </div>
 
     <a
       href="https://wa.me/5586981794415?text=Adorei%20seu%20trabalho,%20desejo%20saber%20mais!"
-    className="fixed z-auto bottom-5 right-4"
+      className="fixed z-auto bottom-5 right-4"
+      id="whatswidget-phone-desktop"
       target="_blank"
-      rel="noreferrer"
-    >
-      <FaWhatsapp size={80} color="#00fa9a" />
+      rel="noreferrer">
+      <Button onClick={WbotStart} >
+        <FaWhatsapp size={80} color="#00fa9a" />
+      </Button>
     </a>
   </>
 )

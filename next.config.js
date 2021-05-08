@@ -1,5 +1,10 @@
-const withImages = require('next-images');
+const withImages = require('next-images')
+// sassOptions: { includePaths: [path.join(__dirname, 'styles')] },
 
-module.exports = {
-  withImages: withImages({}),
-};
+module.exports = withImages({
+  esModule: true,
+  webpack(config, options) {
+    config.module.rules.push({test:  /\.md$/, use: 'raw-loader'})
+    return config
+  },
+})

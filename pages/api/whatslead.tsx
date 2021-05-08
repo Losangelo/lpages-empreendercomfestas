@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from '../../src/middleware/database'
+
 interface ErrorResponseType {
   error: string
 }
+
 interface SuccessResponderType {
   _id: string
-  name: string
-  email: string
+  whatsName: string
+  whatsNumber: string
 }
 
 export default async (
@@ -16,20 +18,22 @@ export default async (
   const { db } = await dbConnect()
 
   if (req.method == 'POST') {
-    const { name, email } = req.body
-    const leadFound = await db.collection('leads').findOne({ email })
+    const { whatsName, whatsNumber } = req.body
+    const whatsLeadFound = await db.collection('WhatsLead').findOne({ whatsNumber })
 
-    if (!leadFound) {
-      const response = await db.collection('leads').insertOne({
-        name,
-        email,
+    if (!whatsLeadFound) {
+      const response = await db.collection('WhatsLead').insertOne({
+        whatsName,
+        whatsNumber,
       })
       res.status(200).json(response.ops[0])
     } else {
-      res.status(400).json({ error: 'exist email! - email já cadastrado' })
+      res
+        .status(400)
+        .json({ error: 'this email is already registered! (este email já está cadastrado)' })
     }
   } else if (req.method == 'GET') {
-    const response = await db.collection('leads').distinct('email')
+    const response = await db.collection('WhatsLead').distinct('whatsNumber')
     console.log(response)
   } else {
     return res.status(400).json({ error: 'Wrong request method (Método request desconhecido)' })

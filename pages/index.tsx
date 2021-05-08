@@ -14,21 +14,27 @@ const Home: NextPage = () => (
       <Head>
         <title>Empreender Com Festas</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" href="../public/favicon.ico" />
+        {/* <link rel="icon" href="../public/favicon.ico" /> */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
       </Head>
 
       <Header />
-
       <Leads />
+       <div>
+          <h1 className="p-10 text-5xl font-extrabold font-sans text-center align-middle justify-center justify-items-center">
+              Cursos e Materiais Didáticos
+          </h1>
+      </div>
       <Cursos />
       <Footer />
-
     </div>
   </>
 )

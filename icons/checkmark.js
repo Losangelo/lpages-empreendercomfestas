@@ -1,11 +1,6 @@
 export function CheckSVG() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="80"
-      height="80"
-      viewBox="0 0 512 512"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 512 512">
       <polyline
         points="416 128 192 384 96 288"
         style={{

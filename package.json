@@ -6,47 +6,67 @@
     "dev": "next dev",
     "build": "next  build",
     "start": "next start",
-    "db": "yarn json-server --watch db.json"
+    "db": "yarn json-server --watch db.json",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@material-ui/core": "^4.11.4",
     "@tailwindcss/forms": "^0.3.2",
     "axios": "^0.21.1",
-    "eslint-config-recommended": "^4.1.0",
-    "eslint-loader": "^4.0.2",
+    "child_process": "^1.0.2",
+    "framer-motion": "^4",
     "mongodb": "^3.6.6",
-    "next": "10.1.3",
-    "next-auth": "^3.16.1",
-    "next-connect": "^0.10.1",
+    "next": "^10.0.0",
+    "next-auth": "^3.20.0",
+    "next-auth-client": "^1.5.0",
     "next-images": "^1.7.0",
+    "path": "^0.12.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "url_parser": "^1.0.5"
+    "venom-bot": "^3.0.8"
+  },
+  "browser": {
+    "child_process": false
   },
   "devDependencies": {
     "@types/mongodb": "^3.6.12",
-    "@types/mongoose": "^5.10.4",
-    "@types/next-auth": "^3.15.0",
-    "@types/node": "^14.14.41",
+    "@types/node": "^14.14.44",
     "@types/react": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
     "autoprefixer": "^10.2.5",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^6.0.0",
     "json-server": "^0.16.3",
+    "lint-staged": "^10.5.4",
     "postcss": "^8.2.12",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.1.2",
+    "prettier": "^2.2.1",
     "react-toastify": "^7.0.3",
     "tailwindcss": "^2.0.4",
     "typescript": "^4.2.4"

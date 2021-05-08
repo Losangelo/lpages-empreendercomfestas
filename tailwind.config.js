@@ -1,5 +1,5 @@
-const path = require('path');
-const colors = require('tailwindcss/colors');
+const path = require('path')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   future: {
@@ -37,4 +37,4 @@ module.exports = {
       opacity: ['disabled'],
     },
   },
-};
+}
