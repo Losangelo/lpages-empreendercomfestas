@@ -1,9 +1,9 @@
-import { NextPage } from 'next'
-import { FaWhatsapp } from 'react-icons/fa'
 // import { Button } from '@material-ui/core'
-import { Button } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react";
+import { NextPage } from 'next';
+import { FaWhatsapp } from 'react-icons/fa';
+// import WbotStart from '../whatsapp';
 
-import WbotStart from '../whatsapp'
 
 const Footer: NextPage = () => (
   <>
@@ -25,9 +25,7 @@ const Footer: NextPage = () => (
       id="whatswidget-phone-desktop"
       target="_blank"
       rel="noreferrer">
-      <Button onClick={WbotStart} >
         <FaWhatsapp size={80} color="#00fa9a" />
-      </Button>
     </a>
   </>
 )

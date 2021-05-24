@@ -1,7 +1,5 @@
 import { signIn, signOut, useSession } from 'next-auth/client'
-
 import { FaInstagramSquare, FaYoutubeSquare, FaFacebookSquare, FaAngellist } from 'react-icons/fa'
-
 import { MdAccountCircle } from 'react-icons/md'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'

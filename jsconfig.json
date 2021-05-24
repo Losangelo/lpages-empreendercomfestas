@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["*"]
     }
   },
-  "include": ["scr"],
   "exclude": [".next", "node_modules"]
 }

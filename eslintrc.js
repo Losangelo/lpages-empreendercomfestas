@@ -31,8 +31,9 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Use our .prettierrc file as source
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
     'simple-import-sort/import': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    "react/react-in-jsx-scope": "off",
     'jsx-a11y/anchor-is-valid': [
       'error',
       {

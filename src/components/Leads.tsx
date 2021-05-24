@@ -41,6 +41,8 @@ const Leads: NextPage = () => {
       },
       method: 'POST',
     })
+    setName('')
+    setEmail('')
     return await res.json()
   }
 
@@ -74,7 +76,7 @@ const Leads: NextPage = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Coloque aqui seu nome"
-                className="border border-transparent focus:outline-none focus:ring-2"
+                className="p-2 border border-transparent focus:outline-none focus:ring-2"
               />
 
               <input
@@ -83,7 +85,7 @@ const Leads: NextPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Coloque aqui seu e-mail"
-                className="border border-transparent focus:outline-none focus:ring-2"
+                className="p-2 border border-transparent focus:outline-none focus:ring-2"
               />
 
               <Button

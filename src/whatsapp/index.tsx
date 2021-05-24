@@ -1,43 +1,19 @@
-import Wbot from 'venom-bot';
-
-// export default function WbotStart() {
-//   let client = Wbot.create('Festeiras',
-//     undefined,
-//     // statusFind
-//    (statusSession, session) => {
-//     console.log('Status Session: ', statusSession)
-//     console.log('Session name: ', session)
-//    },
-//    // options
-//    {useChrome: false}
-//   ).then((festeiras) => gerandoListaPeloWhatsapp(festeiras))
-//   .catch((error) => {
-//     console.log(error)
-//   })
-// }
+// import Wbot from 'sulla';
 
 export default async function WbotStart() {
   try {
-    await Wbot.create('Festeiras',
-        undefined,
-        // statusFind
-      (statusSession, session) => {
-        console.log('Status Session: ', statusSession)
-        console.log('Session name: ', session)
-      },
-      // options
-      {useChrome: false})
+    await Wbot.create('Festeiras')
       .then((client) => gerandoListaPeloWhatsapp(client))
       .catch((error) => {
         console.log(error)
-      })
+      });
   } catch (error) {
     console.log(error)
   }
-
 }
 
-function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp): any {
+
+function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp) {
   client.onMessage(async (message) => {
     if (String(message.body).toUpperCase().trim() == 'SAIR') {
       client.sendText(
@@ -73,4 +49,4 @@ function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp): any {
         "Digite 'SIM' para se cadastrar a ficar bem informada(o)"
     )
   })
-}
+};
