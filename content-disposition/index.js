@@ -86,7 +86,8 @@ var QUOTE_REGEXP = /([\\"])/g
  * @private
  */
 
-var PARAM_REGEXP = /;[\x09\x20]*([!#$%&'*+.0-9A-Z^_`a-z|~-]+)[\x09\x20]*=[\x09\x20]*("(?:[\x20!\x23-\x5b\x5d-\x7e\x80-\xff]|\\[\x20-\x7e])*"|[!#$%&'*+.0-9A-Z^_`a-z|~-]+)[\x09\x20]*/g // eslint-disable-line no-control-regex
+var PARAM_REGEXP =
+  /;[\x09\x20]*([!#$%&'*+.0-9A-Z^_`a-z|~-]+)[\x09\x20]*=[\x09\x20]*("(?:[\x20!\x23-\x5b\x5d-\x7e\x80-\xff]|\\[\x20-\x7e])*"|[!#$%&'*+.0-9A-Z^_`a-z|~-]+)[\x09\x20]*/g // eslint-disable-line no-control-regex
 var TEXT_REGEXP = /^[\x20-\x7e\x80-\xff]+$/
 var TOKEN_REGEXP = /^[!#$%&'*+.0-9A-Z^_`a-z|~-]+$/
 
@@ -112,7 +113,8 @@ var TOKEN_REGEXP = /^[!#$%&'*+.0-9A-Z^_`a-z|~-]+$/
  * @private
  */
 
-var EXT_VALUE_REGEXP = /^([A-Za-z0-9!#$%&+\-^_`{}~]+)'(?:[A-Za-z]{2,3}(?:-[A-Za-z]{3}){0,3}|[A-Za-z]{4,8}|)'((?:%[0-9A-Fa-f]{2}|[A-Za-z0-9!#$&+.^_`|~-])+)$/
+var EXT_VALUE_REGEXP =
+  /^([A-Za-z0-9!#$%&+\-^_`{}~]+)'(?:[A-Za-z]{2,3}(?:-[A-Za-z]{3}){0,3}|[A-Za-z]{4,8}|)'((?:%[0-9A-Fa-f]{2}|[A-Za-z0-9!#$&+.^_`|~-])+)$/
 
 /**
  * RegExp for various RFC 6266 grammar
@@ -141,7 +143,7 @@ var DISPOSITION_TYPE_REGEXP = /^([!#$%&'*+.0-9A-Z^_`a-z|~-]+)[\x09\x20]*(?:$|;)/
  * @public
  */
 
-function contentDisposition (filename, options) {
+function contentDisposition(filename, options) {
   var opts = options || {}
 
   // get type
@@ -163,7 +165,7 @@ function contentDisposition (filename, options) {
  * @private
  */
 
-function createparams (filename, fallback) {
+function createparams(filename, fallback) {
   if (filename === undefined) {
     return
   }
@@ -194,9 +196,7 @@ function createparams (filename, fallback) {
   var isQuotedString = TEXT_REGEXP.test(name)
 
   // generate fallback name
-  var fallbackName = typeof fallback !== 'string'
-    ? fallback && getlatin1(name)
-    : basename(fallback)
+  var fallbackName = typeof fallback !== 'string' ? fallback && getlatin1(name) : basename(fallback)
   var hasFallback = typeof fallbackName === 'string' && fallbackName !== name
 
   // set extended filename parameter
@@ -206,9 +206,7 @@ function createparams (filename, fallback) {
 
   // set filename parameter
   if (isQuotedString || hasFallback) {
-    params.filename = hasFallback
-      ? fallbackName
-      : name
+    params.filename = hasFallback ? fallbackName : name
   }
 
   return params
@@ -224,7 +222,7 @@ function createparams (filename, fallback) {
  * @private
  */
 
-function format (obj) {
+function format(obj) {
   var parameters = obj.parameters
   var type = obj.type
 
@@ -243,9 +241,7 @@ function format (obj) {
     for (var i = 0; i < params.length; i++) {
       param = params[i]
 
-      var val = param.substr(-1) === '*'
-        ? ustring(parameters[param])
-        : qstring(parameters[param])
+      var val = param.substr(-1) === '*' ? ustring(parameters[param]) : qstring(parameters[param])
 
       string += '; ' + param + '=' + val
     }
@@ -262,7 +258,7 @@ function format (obj) {
  * @private
  */
 
-function decodefield (str) {
+function decodefield(str) {
   var match = EXT_VALUE_REGEXP.exec(str)
 
   if (!match) {
@@ -298,7 +294,7 @@ function decodefield (str) {
  * @private
  */
 
-function getlatin1 (val) {
+function getlatin1(val) {
   // simple Unicode -> ISO-8859-1 transformation
   return String(val).replace(NON_LATIN1_REGEXP, '?')
 }
@@ -311,7 +307,7 @@ function getlatin1 (val) {
  * @public
  */
 
-function parse (string) {
+function parse(string) {
   if (!string || typeof string !== 'string') {
     throw new TypeError('argument string is required')
   }
@@ -332,9 +328,7 @@ function parse (string) {
   var value
 
   // calculate index to start at
-  index = PARAM_REGEXP.lastIndex = match[0].substr(-1) === ';'
-    ? index - 1
-    : index
+  index = PARAM_REGEXP.lastIndex = match[0].substr(-1) === ';' ? index - 1 : index
 
   // match parameters
   while ((match = PARAM_REGEXP.exec(string))) {
@@ -368,9 +362,7 @@ function parse (string) {
 
     if (value[0] === '"') {
       // remove quotes and escapes
-      value = value
-        .substr(1, value.length - 2)
-        .replace(QESC_REGEXP, '$1')
+      value = value.substr(1, value.length - 2).replace(QESC_REGEXP, '$1')
     }
 
     params[key] = value
@@ -392,7 +384,7 @@ function parse (string) {
  * @private
  */
 
-function pdecode (str, hex) {
+function pdecode(str, hex) {
   return String.fromCharCode(parseInt(hex, 16))
 }
 
@@ -404,11 +396,8 @@ function pdecode (str, hex) {
  * @private
  */
 
-function pencode (char) {
-  return '%' + String(char)
-    .charCodeAt(0)
-    .toString(16)
-    .toUpperCase()
+function pencode(char) {
+  return '%' + String(char).charCodeAt(0).toString(16).toUpperCase()
 }
 
 /**
@@ -419,7 +408,7 @@ function pencode (char) {
  * @private
  */
 
-function qstring (val) {
+function qstring(val) {
   var str = String(val)
 
   return '"' + str.replace(QUOTE_REGEXP, '\\$1') + '"'
@@ -433,14 +422,13 @@ function qstring (val) {
  * @private
  */
 
-function ustring (val) {
+function ustring(val) {
   var str = String(val)
 
   // percent encode as UTF-8
-  var encoded = encodeURIComponent(str)
-    .replace(ENCODE_URL_ATTR_CHAR_REGEXP, pencode)
+  var encoded = encodeURIComponent(str).replace(ENCODE_URL_ATTR_CHAR_REGEXP, pencode)
 
-  return 'UTF-8\'\'' + encoded
+  return "UTF-8''" + encoded
 }
 
 /**
@@ -452,7 +440,7 @@ function ustring (val) {
  * @constructor
  */
 
-function ContentDisposition (type, parameters) {
+function ContentDisposition(type, parameters) {
   this.type = type
   this.parameters = parameters
 }

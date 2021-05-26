@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-const PointSchema = require('./utils/PointSchema');
 
 // Id: 4,
 // Title: ' Viver de Festas',
@@ -36,6 +35,6 @@ const ProductSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 })
 
-// mongoose.models = {}
+mongoose.models = {}
 
 export default mongoose.model('Product', ProductSchema)

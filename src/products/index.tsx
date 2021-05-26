@@ -1,35 +1,61 @@
-import React from 'react'
-import { NextPage } from 'next'
-import { Center, Button, Box, Divider, Stack } from '@chakra-ui/react'
-import { MdBuild, MdCall } from 'react-icons/md'
-import { FiArrowLeft } from 'react-icons/fi'
+import React, { useState, useEffect } from 'react'
+import ProductForm from './components/ProductForm'
+import ProductItem from './components/ProductItem'
 
-import ProductForm from './components/product'
+import './model/Product'
+import dbConnect from '../middleware/database'
 
-const Products: NextPage = () => (
-  <>
-    <Center height="110px">
-      <Divider orientation="vertical" />
-    </Center>
+async function ProductManager (_props: any) {
+  const [products, setProducts] = useState([])
+  const { db } = await dbConnect()
 
-    <Box bg="tomato" w="100%" p={4} color="white">
-      <a href="#">
-        <FiArrowLeft />
-      </a>
-        Manutenção de Produtos
-    </Box>
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await fetch('/api/product')
+      // db.collection('products').find()
+      console.log(response.data)
+      setProducts(response.data)
+    }
+    loadProducts()
+  }, [])
 
-    <aside>
-        <ProductForm />
-    </aside>
-    <main>
-      <Stack direction="row" spacing={20}>
-        <Button leftIcon={<MdBuild />} colorScheme="pink" variant="solid">
-          Configure um novo Produto
-        </Button>
-      </Stack>
-    </main>
-  </>
-)
+  async function handleAddProduct(data) {
+    const response = await fetch('/api/products', {
+      body: JSON.stringify({
+        title: e.target.title.value,
+        description: e.target.description.value,
+        number: e.target.number.value,
+        urlImage: e.target.urlImage.value,
+        whatsappGroupLink: e.target.whatsappGroupLink.value,
+        telegramGroupLink: e.target.telegramGroupLink.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
 
-export default Products;
+    setProducts([...products, response.data])
+  }
+
+  return (
+    <>
+      <div id="product">
+        <aside>
+          <strong>Cadastrar</strong>
+          <ProductForm onSubmit={handleAddProduct} />
+        </aside>
+
+        <main>
+          <ul>
+            {products.map((product) => (
+              <ProductItem key={product._id} product={product} />
+            ))}
+          </ul>
+        </main>
+      </div>
+    </>
+  )
+}
+
+export default ProductManager

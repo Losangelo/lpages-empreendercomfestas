@@ -1,7 +1,8 @@
 module.exports = {
   root: true, // Make sure eslint picks up the config at the root of the directory
   parser: '@typescript-eslint/parser',
-  plugins: ['simple-import-sort'],
+  plugins: ['simple-import-sort', 'import', 'react-hooks'],
+  ignorePatterns: ['node_modules/'],
   parserOptions: {
     ecmaVersion: 2020, // Use the latest ecmascript standard
     sourceType: 'module', // Allows using import/export statements
@@ -33,7 +34,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'simple-import-sort/import': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    "react/react-in-jsx-scope": "off",
+    'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {

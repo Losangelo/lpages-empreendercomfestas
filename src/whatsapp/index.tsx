@@ -6,12 +6,11 @@ export default async function WbotStart() {
       .then((client) => gerandoListaPeloWhatsapp(client))
       .catch((error) => {
         console.log(error)
-      });
+      })
   } catch (error) {
     console.log(error)
   }
 }
-
 
 function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp) {
   client.onMessage(async (message) => {
@@ -24,7 +23,6 @@ function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp) {
     }
 
     if (String(message.body).toUpperCase().trim() == 'SIM') {
-
       fetch('/api/whatslead', {
         body: JSON.stringify({
           whatsName: message.sender.pushname,
@@ -49,4 +47,4 @@ function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp) {
         "Digite 'SIM' para se cadastrar a ficar bem informada(o)"
     )
   })
-};
+}

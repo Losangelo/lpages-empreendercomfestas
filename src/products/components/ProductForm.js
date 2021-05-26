@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   FormControl,
   FormLabel,
@@ -14,11 +13,9 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react'
 
-
-
-export default function ProductForm({onSubmit}){
+export default function ProductForm({ onSubmit }) {
   const format = (val) => `R$ ` + val
-  const parse = (val) => val.replace(/^\$/, '')
+  const parse = (val) => val.replace(/^\R\$/, '')
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -26,7 +23,6 @@ export default function ProductForm({onSubmit}){
   const [urlImage, setUrlImage] = useState('')
   const [whatsappGroupLink, setWhatsappGroupLink] = useState('')
   const [telegramGroupLink, setTelegramGroupLink] = useState('')
-
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -79,14 +75,14 @@ export default function ProductForm({onSubmit}){
           <FormHelperText>Descreva um pouco sobre o seu produto.</FormHelperText>
         </FormControl>
 
-        <FormControl id="price">
+        {/* <FormControl id="price">
           <FormLabel>Valor do Produto</FormLabel>
           <NumberInput
             name="price"
             id="price"
             required
             value={format(price)}
-            onChange={(e) => setPrice(parse(e))}>
+            onChange={(e) => setPrice(parseFloat(parse(e)))}>
 
             <NumberInputField />
             <NumberInputStepper>
@@ -95,7 +91,7 @@ export default function ProductForm({onSubmit}){
             </NumberInputStepper>
           </NumberInput>
           <FormHelperText>Defina um valor!</FormHelperText>
-        </FormControl>
+        </FormControl> */}
 
         <FormControl id="urlImage">
           <FormLabel>Url para o arquivo da Capa</FormLabel>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const dbCursosList = [
   {
@@ -33,44 +33,39 @@ const dbCursosList = [
     Description:
       'É um curso 100% online que vai te guiar passo a passo para você se tornar uma decorador(a) reconhecido(a) e valorizado(a), para VIVER de FESTAS como sempre sonhou, mesmo que ainda não tenha começado.',
   },
-];
-
+]
 
 export default function Curso(): any {
- const CourseCard = dbCursosList.map( (item ) => (
+  const CourseCard = dbCursosList.map((item) => (
     <>
-    <div
-      key={item.Id}
-      className="pb-2 max-w-md mx-auto bg-white rounded-xl shadow-sm overflow-hidden md:max-w-2xl">
-      <div className="md:flex">
-
-        <div className="md:flex-shrink-0">
-          <img
-            className="h-full w-full object-contain md:w-48"
-            src={item.urlImage}
-            alt="Personalizado de Luxo Luciana Fereira"
-          />
-        </div>
-
-        <div className="p-8">
-          <div className="uppercase tracking-wide text-xl text-indigo-500 font-semibold">
-            {item.Title}
+      <div
+        key={item.Id}
+        className="pb-2 max-w-md mx-auto bg-white rounded-xl shadow-sm overflow-hidden md:max-w-2xl">
+        <div className="md:flex">
+          <div className="md:flex-shrink-0">
+            <img
+              className="h-full w-full object-contain md:w-48"
+              src={item.urlImage}
+              alt="Personalizado de Luxo Luciana Fereira"
+            />
           </div>
 
-          <a
-            href="#"
-            className="block mt-1 text-sm leading-tight font-medium text-black hover:underline">
-            'Produto Digital: R$' {item.price}
-          </a>
+          <div className="p-8">
+            <div className="uppercase tracking-wide text-xl text-indigo-500 font-semibold">
+              {item.Title}
+            </div>
 
-          <p className="mt-2 text-gray-500 text-justify font-light">{item.Description}</p>
+            <a
+              href="#"
+              className="block mt-1 text-sm leading-tight font-medium text-black hover:underline">
+              'Produto Digital: R$' {item.price}
+            </a>
+
+            <p className="mt-2 text-gray-500 text-justify font-light">{item.Description}</p>
+          </div>
         </div>
-
       </div>
-
-    </div>
     </>
-    ))
+  ))
   return CourseCard
 }
-

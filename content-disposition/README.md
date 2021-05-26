@@ -51,11 +51,11 @@ a ISO-8859-1 version of the file name is automatically generated.
 This specifies the ISO-8859-1 file name to override the automatic generation or
 disables the generation all together, defaults to `true`.
 
-  - A string will specify the ISO-8859-1 file name to use in place of automatic
-    generation.
-  - `false` will disable including a ISO-8859-1 file name and only include the
-    Unicode version (unless the file name is already ISO-8859-1).
-  - `true` will enable automatic generation if the file name is outside ISO-8859-1.
+- A string will specify the ISO-8859-1 file name to use in place of automatic
+  generation.
+- `false` will disable including a ISO-8859-1 file name and only include the
+  Unicode version (unless the file name is already ISO-8859-1).
+- `true` will enable automatic generation if the file name is outside ISO-8859-1.
 
 If the `filename` option is ISO-8859-1 and this option is specified and has a
 different value, then the `filename` option is encoded in the extended field
@@ -73,7 +73,9 @@ it). The type is normalized to lower-case.
 <!-- eslint-disable no-undef, no-unused-vars -->
 
 ```js
-var disposition = contentDisposition.parse('attachment; filename="EURO rates.txt"; filename*=UTF-8\'\'%e2%82%ac%20rates.txt')
+var disposition = contentDisposition.parse(
+  'attachment; filename="EURO rates.txt"; filename*=UTF-8\'\'%e2%82%ac%20rates.txt'
+)
 ```
 
 Parse a `Content-Disposition` header string. This automatically handles extended
@@ -81,11 +83,11 @@ Parse a `Content-Disposition` header string. This automatically handles extended
 parameter name. This will return an object with the following properties (examples
 are shown for the string `'attachment; filename="EURO rates.txt"; filename*=UTF-8\'\'%e2%82%ac%20rates.txt'`):
 
- - `type`: The disposition type (always lower case). Example: `'attachment'`
+- `type`: The disposition type (always lower case). Example: `'attachment'`
 
- - `parameters`: An object of the parameters in the disposition (name of parameter
-   always lower case and extended versions replace non-extended versions). Example:
-   `{filename: "€ rates.txt"}`
+- `parameters`: An object of the parameters in the disposition (name of parameter
+  always lower case and extended versions replace non-extended versions). Example:
+  `{filename: "€ rates.txt"}`
 
 ## Examples
 
@@ -100,7 +102,7 @@ var onFinished = require('on-finished')
 
 var filePath = '/path/to/public/plans.pdf'
 
-http.createServer(function onRequest (req, res) {
+http.createServer(function onRequest(req, res) {
   // set headers
   res.setHeader('Content-Type', 'application/pdf')
   res.setHeader('Content-Disposition', contentDisposition(filePath))
