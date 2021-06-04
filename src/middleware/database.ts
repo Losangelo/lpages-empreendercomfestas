@@ -13,6 +13,6 @@ const client = new MongoClient(process.env.MONGODB_URI, {
 export default async function dbConnect(): Promise<ConnectType> {
   if (!client.isConnected()) await client.connect()
   const db = client.db(process.env.MONGODB_DB)
-  console.log('process.env.MONGODB_URI: ', process.env.MONGODB_URI)
+  // console.log('process.env.MONGODB_URI: ', process.env.MONGODB_URI)
   return { db, client }
 }

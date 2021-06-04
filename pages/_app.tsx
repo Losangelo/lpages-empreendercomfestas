@@ -1,10 +1,7 @@
 import '../styles/globals.css'
-
-import '../src/products/styles/pageProducts.css'
-import '../src/products/styles/sidebar.css'
 import '../src/products/styles/main.css'
-
-import '../src/products/styles/productItem.css'
+import '../src/products/styles/sidebar.css'
+// import '../src/products/styles/productItem.css'
 
 import { AppProps } from 'next/app'
 import { Provider } from 'next-auth/client'

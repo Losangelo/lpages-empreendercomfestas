@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+aside {
+  @apply pt-32 pr-20 rounded w-32 bg-gray-50 shadow
+}
+
+aside strong {
+  @apply text-center  bg-gray-700 block
+}
+
+aside form {
+  @apply mt-8
+}
+
+aside form .input-block + .input-block {
+  @apply mt-5;
+
+}
+
+aside form .input-group {
+  @apply mt-5 grid gap-x-2 grid-cols-2
+}
+
+aside form .input-group .input-block {
+  @apply mt-0
+}
+
+aside form .input-block label {
+  @apply text-gray-500 text-sm font-bold block
+}
+
+aside form .input-block input {
+  @apply w-full h-8 text-sm text-gray-400
+}
+
+aside form .input-block textarea {
+  @apply w-full h-12 text-sm border-0 border-dotted
+}
+
+aside form button[type='submit'] {
+  @apply pt-2 pr-5 w-full mt-8 background: #7d40e7
+ rounded-none text-base font-bold text-white cursor-pointer transition duration-500 ease-in-out bg-blue-600 hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110
+}
+
+aside form button[type='submit']:hover {
+  background: #6931ca;
+}

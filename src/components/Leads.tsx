@@ -64,8 +64,8 @@ const Leads: NextPage = () => {
             novidades de personalizados de luxo e papelaria de luxo ...
           </p>
 
-          <div className="uppercase text-4xl font-extrabold  font-sans">
-            <span className="p-2">Se inscreva aqui.</span>
+          <div className="uppercase text-4xl font-extrabold font-sans ">
+            <span className="p-2 text-red-500">Se inscreva aqui.</span>
           </div>
 
           <form onSubmit={handlerRegister} method="POST">

@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 // price: '497',
 // Description:
 const ProductSchema = new mongoose.Schema({
-  Title: {
+  title: {
     type: String,
     required: [true, 'O título é requerido!'],
     trim: true,
@@ -17,18 +17,21 @@ const ProductSchema = new mongoose.Schema({
     trim: true,
   },
   price: {
-    type: Number,
-    required: [true, 'Um preço válido é requerido!'],
+    type: String,
+    // required: [true, 'Um preço válido é requerido!'],
     trim: true,
   },
-  Description: {
+  description: {
     type: String,
     required: [true, 'Uma descrição se faz necessária!'],
     trim: true,
   },
-  SocialNetwork: {
+  whatsappGroupLink: {
     type: String,
-    required: [true, 'Uma descrição se faz necessária!'],
+    trim: true,
+  },
+  telegramGroupLink: {
+    type: String,
     trim: true,
   },
   createdAt: { type: Date, default: Date.now },

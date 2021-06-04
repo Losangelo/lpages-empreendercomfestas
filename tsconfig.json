@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
+    "target":"ESNext",
     "alwaysStrict": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
@@ -14,9 +15,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext",
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "strictNullChecks":false,
     "esModuleInterop": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,5 +1,5 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
 import Head from 'next/head'
+import { useSession } from 'next-auth/client'
 
 import styles from '../styles/Home.module.css'
 
@@ -8,6 +8,7 @@ import Leads from '../src/components/Leads'
 import Cursos from '../src/components/Cursos'
 import Footer from '../src/components/Footer'
 import Products from '../src/products/'
+// import Products from './api/NotUser.product'
 
 function Home() {
   const [session] = useSession()

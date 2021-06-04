@@ -4,7 +4,7 @@ module.exports = {
   plugins: ['simple-import-sort', 'import', 'react-hooks'],
   ignorePatterns: ['node_modules/'],
   parserOptions: {
-    ecmaVersion: 2020, // Use the latest ecmascript standard
+    ecmaVersion: 6, // Use the latest ecmascript standard
     sourceType: 'module', // Allows using import/export statements
     ecmaFeatures: {
       jsx: true, // Enable JSX since we're using React
