@@ -1,8 +1,9 @@
 // import Wbot from 'sulla';
+import { create, Whatsapp } from 'venom-bot'
 
 export default async function WbotStart() {
   try {
-    await Wbot.create('Festeiras')
+    await create('Festeiras')
       .then((client) => gerandoListaPeloWhatsapp(client))
       .catch((error) => {
         console.log(error)
@@ -12,17 +13,17 @@ export default async function WbotStart() {
   }
 }
 
-function gerandoListaPeloWhatsapp(client: Wbot.Whatsapp) {
+function gerandoListaPeloWhatsapp(client: Whatsapp) {
   client.onMessage(async (message) => {
-    if (String(message.body).toUpperCase().trim() == 'SAIR') {
+    if (String(message.body).toUpperCase().trim() == 'sair') {
       client.sendText(
         message.from,
-        'Pena que não quer mais receber nossas novidades, estarei aguardando seu retorno heim!!!'
+        'Pena que você, não quer mais receber nossas novidades, você pode voltar, quando quiser, heim !!!'
       )
       return
     }
 
-    if (String(message.body).toUpperCase().trim() == 'SIM') {
+    if (String(message.body).toUpperCase().trim() == 'sim') {
       fetch('/api/whatslead', {
         body: JSON.stringify({
           whatsName: message.sender.pushname,

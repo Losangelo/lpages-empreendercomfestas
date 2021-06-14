@@ -1,7 +1,6 @@
 
 import { NextPage } from 'next'
 import { FaWhatsapp } from 'react-icons/fa'
-// import WbotStart from '../whatsapp';
 
 const Footer: NextPage = () => (
   <>

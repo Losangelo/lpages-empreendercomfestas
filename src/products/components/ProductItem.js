@@ -1,8 +1,24 @@
-import {Box, Spacer, Text, Link, Image, Center, Divider, Grid} from '@chakra-ui/react'
+import {
+  Box,
+  Spacer,
+  Text,
+  Link,
+  Image,
+  Center,
+  Divider,
+  Grid,
+  useDisclosure,
+  Slide,
+  SlideFade,
+  Button,
+} from '@chakra-ui/react'
+
 // import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { FaWhatsapp, FaTelegram } from 'react-icons/fa'
 
 export default function ProductItem({ product }) {
+  const { isOpen, onToggle } = useDisclosure()
+
   return (
     <>
       <Grid border="1px" borderColor="pink.400">
@@ -13,8 +29,9 @@ export default function ProductItem({ product }) {
             color="whiteAlpha.800"
             p={1}
             display={{ md: 'flex' }}>
-            <Box flexShrink={0}>
+            <Box flexShrink={0} md={48}>
               <Image
+                onClick={onToggle}
                 borderRadius="md"
                 width={{ md: 40 }}
                 height={{ md: 40 }}
@@ -22,6 +39,22 @@ export default function ProductItem({ product }) {
                 fallbackSrc="https://via.placeholder.com/150"
                 alt="Luciana Ferreira"
               />
+
+              <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
+                <Box p="40px" color="white" mt="4" bg="teal.500" rounded="md" shadow="md">
+                  <Text>
+                    <Center>{product.title}</Center>
+                    Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
+                    aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia
+                    cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Sunt ad dolore
+                    quis aute consequat. Magna exercitation reprehenderit magna aute tempor
+                    cupidatat consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
+                    incididunt cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim laboris
+                    do dolor eiusmod. Et mollit incididunt nisi consectetur esse laborum eiusmod
+                    pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
+                  </Text>
+                </Box>
+              </Slide>
             </Box>
 
             <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
@@ -63,7 +96,8 @@ export default function ProductItem({ product }) {
                   fontSize="md"
                   lineHeight="normal"
                   fontWeight="semibold"
-                  href={product.whatsappGroupLink}>
+                  href={product.whatsappGroupLink}
+                  isExternal>
                   <FaWhatsapp size={20} color="#00fa9a" />
                 </Link>
               </Box>
@@ -73,7 +107,8 @@ export default function ProductItem({ product }) {
                   fontSize="md"
                   lineHeight="normal"
                   fontWeight="semibold"
-                  href={product.telegramGroupLink}>
+                  href={product.telegramGroupLink}
+                  isExternal>
                   <FaTelegram size={20} color="#0066cc" />
                 </Link>
               </Box>

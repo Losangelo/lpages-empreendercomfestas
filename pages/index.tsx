@@ -6,9 +6,9 @@ import styles from '../styles/Home.module.css'
 import Header from '../src/components/Header'
 import Leads from '../src/components/Leads'
 import Cursos from '../src/components/Cursos'
+import Vitrine from '../src/components/Vitrine'
 import Footer from '../src/components/Footer'
 import Products from '../src/products/'
-// import Products from './api/NotUser.product'
 
 function Home() {
   const [session] = useSession()
@@ -30,22 +30,17 @@ function Home() {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
+
         <Header />
 
         {!session ? (
           <>
             <Leads />
-            <div>
-              <h1 className="p-10 text-5xl font-extrabold font-sans text-center align-middle justify-center justify-items-center">
-                Cursos e Materiais Didáticos
-              </h1>
-            </div>
+            <Vitrine />
             <Cursos />
           </>
         ) : (
-          <>
-            <Products />
-          </>
+          <Products />
         )}
         <Footer />
       </div>

@@ -78,5 +78,15 @@ export default function Curso(): any {
       </div>
     </>
   ))
-  return CourseCard
+  return (
+    <>
+      <div>
+        <h1 className="p-10 text-5xl font-extrabold font-sans text-center align-middle justify-center justify-items-center">
+          Cursos e Materiais Didáticos
+        </h1>
+      </div>
+
+      {CourseCard}
+    </>
+  )
 }

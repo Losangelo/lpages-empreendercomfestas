@@ -1,13 +1,24 @@
 import React, { useEffect, useState} from 'react'
-
 import ProductForm from './components/ProductForm'
 import ProductItem from './components/ProductItem'
-import { SuccessResponderType } from '../../src/products/Interfaces/IProduct'
 import { api } from '../services/api'
+
 
 // {title, description, price, urlImage, whatsappGroupLink, telegramGroupLink
 // }
-export default function ProductManager () {
+
+// https://next-auth.js.org/providers/google
+// if (
+//   account.provider === 'google' &&
+//   profile.verified_email === true &&
+//   profile.email.endsWith('@example.com')
+// ) {
+//   return true
+// } else {
+//   return false
+// }
+
+export default function ProductManager() {
   const [products, setProducts] = useState([])
 
   async function handleAddProduct(data) {
@@ -29,48 +40,45 @@ export default function ProductManager () {
     //   })
 
     // console.log("---------Inicio-------------------")
-    console.log(response)
+    // console.log(response)
     // console.log('---------Fim   -------------------')
 
-      return (await response).data
+    return (await response).data
+  }
+
+  useEffect(() => {
+    const loadData = async () => {
+      // const response = await api.get('/api/product')
+      // const dados = await response.data
+
+      // console.log('-------DADOS--------------------------')
+      // console.log(dados)
+      // console.log('-------------------------------------')
+
+      // setProducts(dados)
+
+      // console.log(dados)
+      // setProducts([dados])
+
+      const response = await fetch('/api/product')
+      const data = await response.json()
+      // products.push([...products, data.data])
+
+      console.log('***** fim da LISTANTO O CONTEÚDO DE DATA*****')
+
+      // products.reverse()
+      setProducts(data.data)
+
+      // Ok está passando veja o teste
+      // console.log('-------------------------------------')
+      // console.log(data.data.length)
+      // console.log(products)
+      // console.log(data.data)
+      // console.log('-------------------------------------')
     }
 
-
-    useEffect( () => {
-
-      const loadData = async () => {
-        // const response = await api.get('/api/product')
-        // const dados = await response.data
-
-        // console.log('-------DADOS--------------------------')
-        // console.log(dados)
-        // console.log('-------------------------------------')
-
-        // setProducts(dados)
-
-        // console.log(dados)
-        // setProducts([dados])
-
-        const response = await fetch('/api/product')
-        const data = await response.json()
-        // products.push([...products, data.data])
-
-        console.log('***** fim da LISTANTO O CONTEÚDO DE DATA*****')
-
-        // products.reverse()
-        setProducts(data.data)
-
-        // Ok está passando veja o teste
-        // console.log('-------------------------------------')
-        // console.log(data.data.length)
-        // console.log(products)
-        // console.log(data.data)
-        // console.log('-------------------------------------')
-      }
-
-      loadData();
+    loadData()
   }, [])
-
 
   return (
     <>
@@ -86,6 +94,7 @@ export default function ProductManager () {
             ))}
           </ul>
         </main>
+        {/* <Google /> */}
       </div>
     </>
   )

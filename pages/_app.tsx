@@ -1,5 +1,7 @@
 import '../styles/globals.css'
+import '../styles/menu.module.css'
 import '../src/products/styles/main.css'
+import '../src/products/styles/vitrine.css'
 import '../src/products/styles/sidebar.css'
 // import '../src/products/styles/productItem.css'
 

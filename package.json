@@ -24,6 +24,7 @@
     "fsevents": "~2.3.2"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.13",
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -44,7 +45,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "sulla": "^2.4.0"
+    "venom-bot": "^3.0.18"
   },
   "devDependencies": {
     "@types/mongodb": "~3.6.12",

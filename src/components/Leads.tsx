@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaCheck } from 'react-icons/fa'
 import Button from '@material-ui/core/Button'
+import { SimpleGrid } from '@chakra-ui/react'
 
 const Leads: NextPage = () => {
   const [name, setName] = useState('')
@@ -48,7 +49,8 @@ const Leads: NextPage = () => {
 
   return (
     <>
-      <article className="mt-36 top-40 grid grid-col-2 lg:grid-cols-2">
+      <SimpleGrid columns={[1, null, 2]} spacing="15px" m={30} pt={36} h="100%">
+        {/* // <article className="mt-36 top-5 grid grid-col-2 lg:grid-cols-2"> */}
         <div>
           <ToastContainer />
 
@@ -109,7 +111,8 @@ const Leads: NextPage = () => {
             alt="Luciana Ferreira"
           /> */}
         </div>
-      </article>
+        {/* // </article> */}
+      </SimpleGrid>
     </>
   )
 }

@@ -42,7 +42,7 @@ export default async (
         res.status(200).json(response.ops[0])
         // console.log('*******Retrono do Save ************')
       }
-      res.status(200).json({success: 'ok'})
+      // res.status(200).json({success: 'ok'})
 
     }else if (req.method == 'GET'){
       const response = db.collection('products').find()

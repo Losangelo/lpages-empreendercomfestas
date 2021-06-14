@@ -36,8 +36,16 @@ main ul {
   list-style: none;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 640px) {
   main ul {
     grid-template-columns: 1fr;
   }
 }
+
+/* Grid styles -------------------------------------------------*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
